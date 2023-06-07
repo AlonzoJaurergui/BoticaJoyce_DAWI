@@ -20,7 +20,7 @@ public class UsuariosController {
 	
 	@GetMapping("/carga")
 	public String cargaLogin(Model model) {
-		return "Producto";
+		return "index";
 	}
 	
 }

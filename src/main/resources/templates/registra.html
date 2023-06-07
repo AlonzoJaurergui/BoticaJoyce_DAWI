@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-
-    <!-- FRAMEWORK BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<meta charset="UTF-8">
-<title>Acceso al sistema</title>
+<meta charset="ISO-8859-1">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<title>Insert title here</title>
 </head>
 <body>
- <div class="modal-dialog text-center">
+<div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
-        <h1>Ingreso al Sistema</h1>
+        <h1>Registro de usuario</h1>
             <div class="modal-content">
             
                 <div class="col-12 user-img">
@@ -25,7 +24,7 @@
                         <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
                     </div>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="ContraseÃ±a" name="password"/>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
                     <a class="btn btn-secondary" href="/registro">
@@ -34,7 +33,7 @@
                 </form>
 				</br>          
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		            CombinaciÃ³n de usuario y contraseÃ±a incorrecta.
+		            Combinación de usuario y contraseña incorrecta.
 		        </div>
 		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
 		            ha cerrado el sistema.
@@ -43,5 +42,4 @@
         </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

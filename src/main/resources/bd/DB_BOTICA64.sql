@@ -45,7 +45,7 @@ primary key (id_categoria)
 );
 
 CREATE TABLE tb_producto (
-  id_producto int NOT NULL,
+  id_producto int auto_increment NOT NULL,
   nombre_producto VARCHAR(255),
   laboratorio VARCHAR(255),
   stock_unidades INT,
@@ -91,6 +91,7 @@ foreign key (id_producto) references tb_producto (id_producto)
 );
 
 USE botica64;
+select * from tb_producto;
 
 insert into tb_cargo values(1,"Farmaceutico");
 insert into tb_cargo values(2,"Cajero");
