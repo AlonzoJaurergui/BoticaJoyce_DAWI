@@ -38,17 +38,6 @@ CREATE TABLE tb_empleado (
   foreign key (id_usuario) references tb_usuario (id_usuario)
 );
 
-CREATE TABLE tb_receta (
-  id_receta INT NOT NULL AUTO_INCREMENT,
-  id_cliente INT not null,
-  id_empleado int not null,
-  fecha_receta DATE,
-  detalle_receta varchar(255) not null,
-  PRIMARY KEY (id_receta),
-  FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente),
-  FOREIGN KEY (id_empleado) REFERENCES tb_empleado(id_empleado)
-);
-
 CREATE TABLE tb_categoria (
 id_categoria int not null,
 descripcion varchar(255),
@@ -56,7 +45,7 @@ primary key (id_categoria)
 );
 
 CREATE TABLE tb_producto (
-  id_productotb_detalle_venta int NOT NULL,
+  id_producto int NOT NULL,
   nombre_producto VARCHAR(255),
   laboratorio VARCHAR(255),
   stock_unidades INT,
