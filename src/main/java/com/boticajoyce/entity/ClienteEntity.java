@@ -27,7 +27,7 @@ public class ClienteEntity {
 	@Column(name = "correo_electronico")
 	private String email;
 	
-	@Column(name = "numero_dni")
+	@Column(name = "DNI")
 	private String dni;
 
 	public int getIdcliente() {

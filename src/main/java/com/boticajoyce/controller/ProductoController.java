@@ -12,6 +12,11 @@ public class ProductoController {
 	@Autowired
 	IProductoService prodserv;
 	
+	@GetMapping("/producto")
+	public String listadoProd() {
+		return "Producto";
+	}
+	
 	@GetMapping("/producto/registrar")
 	public String registrarProd() {
 		return "MantenimientoProd";

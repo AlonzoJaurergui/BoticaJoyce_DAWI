@@ -33,54 +33,6 @@ public class DetalleVentaEntity {
 	
 	@Column(name = "subtotal")
 	private double subtotal;
-
-	public int getIdetalleventa() {
-		return idetalleventa;
-	}
-
-	public void setIdetalleventa(int idetalleventa) {
-		this.idetalleventa = idetalleventa;
-	}
-
-	public VentaEntity getVenta() {
-		return venta;
-	}
-
-	public void setVenta(VentaEntity venta) {
-		this.venta = venta;
-	}
-
-	public ProductoEntity getProducto() {
-		return producto;
-	}
-
-	public void setProducto(ProductoEntity producto) {
-		this.producto = producto;
-	}
-
-	public int getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public double getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(double subtotal) {
-		this.subtotal = subtotal;
-	}
 	
 	
 }

@@ -10,10 +10,15 @@ import com.boticajoyce.service.IUsuarioService;
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
 	@Autowired
-	IUsuarioRepository iUsuarioRepository;
+	IUsuarioRepository repousu;
 
 	@Override
 	public UsuarioEntity registrarUsuario(UsuarioEntity bean) {
-		return iUsuarioRepository.save(bean);
+		return repousu.save(bean);
+	}
+
+	@Override
+	public UsuarioEntity loginUsuario(String username, String password) {
+		return repousu.findBy(username, password);
 	}
 }

@@ -8,4 +8,6 @@ import com.boticajoyce.entity.UsuarioEntity;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
 
+	UsuarioEntity findBy(String username, String password);
+
 }
