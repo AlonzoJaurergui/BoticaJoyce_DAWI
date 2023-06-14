@@ -16,9 +16,4 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public UsuarioEntity registrarUsuario(UsuarioEntity bean) {
 		return repousu.save(bean);
 	}
-
-	@Override
-	public UsuarioEntity loginUsuario(String username, String password) {
-		return repousu.findBy(username, password);
-	}
 }

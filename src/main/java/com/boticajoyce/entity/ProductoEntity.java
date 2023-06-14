@@ -6,6 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -17,14 +19,24 @@ import jakarta.persistence.TemporalType;
 @Table(name = "tb_producto")
 public class ProductoEntity {
 	@Id
-	@Column(name = "id_producto" )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_producto")
 	private int id;
 	
 	@Column(name = "nombre_producto")
 	private String nombre;
 	
-	@Column(name = "laboratorio")
-	private String laboratorio;
+	@ManyToOne
+	@JoinColumn(name = "id_categoria")
+	private CategoriaEntity categoria;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_laboratorio")
+	private LaboratorioEntity laboratorio;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_ifa")
+	private IfaEntity ifa;
 	
 	@Column(name = "stock_unidades")
 	private int stock;
@@ -39,10 +51,6 @@ public class ProductoEntity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "fecha_de_caducidad")
 	private Date fechacad;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_categoria")
-	private CategoriaEntity categoria;
 
 	public int getId() {
 		return id;
@@ -60,12 +68,28 @@ public class ProductoEntity {
 		this.nombre = nombre;
 	}
 
-	public String getLaboratorio() {
+	public CategoriaEntity getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaEntity categoria) {
+		this.categoria = categoria;
+	}
+
+	public LaboratorioEntity getLaboratorio() {
 		return laboratorio;
 	}
 
-	public void setLaboratorio(String laboratorio) {
+	public void setLaboratorio(LaboratorioEntity laboratorio) {
 		this.laboratorio = laboratorio;
+	}
+
+	public IfaEntity getIfa() {
+		return ifa;
+	}
+
+	public void setIfa(IfaEntity ifa) {
+		this.ifa = ifa;
 	}
 
 	public int getStock() {
@@ -98,14 +122,6 @@ public class ProductoEntity {
 
 	public void setFechacad(Date fechacad) {
 		this.fechacad = fechacad;
-	}
-
-	public CategoriaEntity getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(CategoriaEntity categoria) {
-		this.categoria = categoria;
 	}
 	
 	
