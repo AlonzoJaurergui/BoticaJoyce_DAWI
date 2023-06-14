@@ -24,5 +24,10 @@ public class ProductoServiceImpl implements IProductoService {
 	public List<ProductoEntity> getProductos() {
 		return reprod.findAll();
 	}
+
+	@Override
+	public ProductoEntity getProductoById(int id) {
+		return reprod.findById(id).orElse(null);
+	}
 	
 }

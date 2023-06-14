@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.boticajoyce.entity.CategoriaEntity;
 import com.boticajoyce.entity.IfaEntity;
@@ -34,6 +35,27 @@ public class ProductoController {
 		List<LaboratorioEntity> laboratorios = labserv.getLaboratorios();
 		List<IfaEntity> ifas = ifaserv.getIfas();
 		List<ProductoEntity> productos = prodserv.getProductos();
+		
+		model.addAttribute("categorias", categorias);
+		model.addAttribute("laboratorios", laboratorios);
+		model.addAttribute("ifas", ifas);
+		model.addAttribute("productos", productos);
+		
+		return "Producto";
+	}
+	
+	@PostMapping("/producto/buscar")
+	public String buscar(Model model, int idProd) {
+		ProductoEntity producto = prodserv.getProductoById(idProd);
+		List<ProductoEntity> productos = null;
+		
+		if (producto == null) {
+			productos = prodserv.getProductos();
+		} 
+
+		List<CategoriaEntity> categorias = catserv.getCategorias();
+		List<LaboratorioEntity> laboratorios = labserv.getLaboratorios();
+		List<IfaEntity> ifas = ifaserv.getIfas();
 		
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("laboratorios", laboratorios);
