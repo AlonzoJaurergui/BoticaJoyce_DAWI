@@ -26,7 +26,7 @@ public class UsuariosController {
 		return "RegistroUsu";
 	}
 	
-	@PostMapping("/login")
+	@GetMapping("/menu")
 	public String funLogin() {
 		
 		return "menu";

@@ -14,7 +14,6 @@ password varchar(255)
 CREATE TABLE tb_cliente (
   id_cliente INT NOT NULL AUTO_INCREMENT,
   nombre_completo VARCHAR(255),
-  direccion VARCHAR(255),
   telefono VARCHAR(255),
   correo_electronico VARCHAR(255),
   DNI VARCHAR(255),
@@ -363,6 +362,10 @@ insert into tb_categoria values (4,"INYECCION");
 
 select * from tb_laboratorio;
 select * from tb_categoria;
+select * from tb_cliente;
+
+insert into tb_cliente values (1,"Lucas Ruiz Chavez","945225790","asd@gmail.com","75120153");
+insert into tb_cliente values (2,"Maximiliano Septimo Chavez Rivera","965241750","jr_spt123@gmail.com","52140148");
 
 insert into tb_producto values (1,"GEMFIBROZILO 600 mg 30 unid.",1,32,86,21,0.50,15.00,"2025-11-03");
 insert into tb_producto values (2,"MALDEX COMPUESTO 1 unid.",3,52,64,15,0.50,15.00,"2026-02-04");

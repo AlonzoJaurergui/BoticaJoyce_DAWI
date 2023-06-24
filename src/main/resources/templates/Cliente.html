@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Botica</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/menu">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Vender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Empleados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Laboratorio</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+    <div class="container mt-3">
+        <h2 style="text-align: center">Listado de Clientes</h2>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Filtrar clientes">
+                    <button class="btn btn-primary">Filtrar</button>
+                </div>
+            </div>
+            <div class="col-md-6 text-end">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarClienteModal">Agregar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Agregar modal para agregar cliente -->
+    <div class="modal fade" id="agregarClienteModal" tabindex="-1" aria-labelledby="agregarClienteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agregarClienteModalLabel">Agregar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <form>
+                    <div class="mb-3">
+                        <label for="nombreCompleto" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombreCompleto" placeholder="Ingrese el nombre completo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" placeholder="Ingrese el teléfono">
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="correo" placeholder="Ingrese el correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="dni" placeholder="Ingrese el DNI">
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container mt-3">
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre completo</th>
+                <th>Compras</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí puedes iterar sobre la lista de clientes y generar las filas de la tabla -->
+            <tr>
+                <td>12345678</td>
+                <td>John Doe</td>
+                <td>5</td>
+                <td>johndoe@example.com</td>
+            </tr>
+            <tr>
+                <td>87654321</td>
+                <td>Jane Smith</td>
+                <td>3</td>
+                <td>janesmith@example.com</td>
+            </tr>
+            <!-- ... -->
+        </tbody>
+    </table>
+  </div>
+
+    
+    
+    
+    
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
