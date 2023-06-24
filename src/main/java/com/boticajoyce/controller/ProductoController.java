@@ -69,4 +69,10 @@ public class ProductoController {
 	public String registrarProd() {
 		return "MantenimientoProd";
 	}
+	
+	@GetMapping("/producto/laboratorio")
+	public String laboratorio() {
+		return "Laboratorio";
+	}
+	
 }
