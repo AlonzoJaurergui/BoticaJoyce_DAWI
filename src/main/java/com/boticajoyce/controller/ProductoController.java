@@ -106,6 +106,19 @@ public class ProductoController {
 		return "redirect:/producto/registrar";
 	}
 	
+	@GetMapping("/producto/eliminar/{id}")
+	public String eliminarProd(@PathVariable int id, Model model) {
+		ProductoEntity productos = prodserv.getProductoById(id);
+		model.addAttribute("productos", productos);
+		return "EliminarProd";
+	}
+	
+	@PostMapping("/producto/delete")
+	public String deleteProd(@ModelAttribute (name = "productos") ProductoEntity bean) {
+		prodserv.eliminar(bean);
+		return "redirect:/producto";
+	}
+	
 	@GetMapping("/exportarProductos")
 	public String export(Model model) {
 		List<ProductoEntity> productos = prodserv.getProductos();

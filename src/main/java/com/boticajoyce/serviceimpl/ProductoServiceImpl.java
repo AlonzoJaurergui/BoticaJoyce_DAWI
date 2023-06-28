@@ -29,5 +29,11 @@ public class ProductoServiceImpl implements IProductoService {
 	public ProductoEntity getProductoById(int id) {
 		return reprod.findById(id).orElse(null);
 	}
+
+	@Override
+	public void eliminar(ProductoEntity bean) {
+		reprod.delete(bean);
+	}
+
 	
 }

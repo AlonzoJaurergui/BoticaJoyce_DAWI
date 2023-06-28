@@ -8,4 +8,5 @@ public interface IProductoService {
 	List<ProductoEntity> getProductos();
 	ProductoEntity getProductoById(int id);
 	ProductoEntity mantener(ProductoEntity bean);
+	void eliminar(ProductoEntity bean);
 }

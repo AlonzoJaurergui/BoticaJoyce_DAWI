@@ -92,13 +92,10 @@
 				<td th:text="${p.precio_empaq}"></td>
 				<td th:text="${#dates.format(p.fechacad, 'dd/MM/yyyy')}"></td>
 				<td>
-					<a th:href="@{'/producto/editar' + '/' + ${p.id}}" class="btn btn-primary">Editar</a>						
+					<a th:href="@{'/producto/editar' + '/' + ${p.id}}" class="btn btn-warning">Editar</a>						
 				</td>
 				<td>
-					<form action="/producto/eliminar" method="post">
-						<input type="hidden" name="codigo" th:value="${p.id}">
-						<button type="submit" class="btn btn-info">Eliminar</button>
-					</form>
+					<a th:href="@{'/producto/eliminar' + '/' + ${p.id}}" class="btn btn-danger">Eliminar</a>
 				</td>
 				
 			</tr>
