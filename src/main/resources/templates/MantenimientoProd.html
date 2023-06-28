@@ -12,41 +12,68 @@
 <body>
 <div class="container col-4 mt-4">
 <h1>Mantenimiento del Producto</h1>
-<form >
-  <input type="hidden" >
+<div class="alert alert-success alert-dismissible fade show mt-2 mb-2" role="alert" th:if="${mensaje != null}" th:text="${mensaje}">
+		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+<form th:action="@{/producto/save}" th:object="${productos}">
+  <input type="hidden" th:value="${productos.id}" th:field="*{id}">
   <div class="form-group">
     <label for="inputNombre">Nombre del producto</label>
-    <input class="form-control" placeholder="Ingrese nombre del producto">
+    <input class="form-control" th:field="*{nombre}" placeholder="Ingrese nombre del producto">
   </div>
+  <!--  
   <div class="form-group">
   	<label for="Image" class="form-label">Imagen del Producto</label>
   	<input class="form-control" type="file" id="formFile" onchange="preview()">
   	<button onclick="clearImage()" class="btn btn-danger mt-3">Eliminar imagen</button>
   </div>
+  -->
   <img id="frame" src="" class="img-fluid" />
   <div class="form-group">
     <label for="inputNombre">Laboratorio</label>
-    <input class="form-control">
+    <select class="form-control" th:field="${productos.laboratorio}">
+  		<option th:value="-1" th:text="Seleccione"></option>
+  		<option th:each="l : ${laboratorios}"
+  		th:value="${l.id_laboratorio}"
+  		th:text="${l.nombre_laboratorio}">
+  		</option>
+  	</select>
   </div>
   <div class="form-group">
     <label for="inputNombre">Categoria</label>
-    <input class="form-control">
+    <select class="form-control" th:field="${productos.categoria}">
+  		<option th:value="-1" th:text="Seleccione"></option>
+  		<option th:each="c : ${categorias}"
+  		th:value="${c.idcategoria}"
+  		th:text="${c.descripcion}">
+  		</option>
+  	</select>
+  </div>
+  <div class="form-group">
+    <label for="inputNombre">IFA</label>
+    <select class="form-control" th:field="${productos.ifa}">
+  		<option th:value="-1" th:text="Seleccione"></option>
+  		<option th:each="i : ${ifas}"
+  		th:value="${i.id_ifa}"
+  		th:text="${i.nombre_ifa}">
+  		</option>
+  	</select>
   </div>
   <div class="form-group">
     <label for="inputNombre">Unidades en stock</label>
-    <input class="form-control" placeholder="0">
+    <input class="form-control" th:field="*{stock}" placeholder="0">
   </div>
   <div class="form-group">
     <label for="inputNombre">Precio por unidad</label>
-    <input class="form-control" placeholder="S/ 0.00">
+    <input class="form-control" th:field="*{precio_unidad}" placeholder="S/ 0.00">
   </div>
   <div class="form-group">
     <label for="inputNombre">Precio por empaquetado</label>
-    <input class="form-control" placeholder="S/ 0.00">
+    <input class="form-control" th:field="*{precio_empaq}" placeholder="S/ 0.00">
   </div>
   <div class="form-group">
     <label for="inputNombre">Fecha de caducidad</label>
-    <input type="date" class="form-control">
+    <input type="date" th:field="*{fechacad}" class="form-control">
   </div>
   <br>
   <button type="submit" class="btn btn-success">Agregar</button>

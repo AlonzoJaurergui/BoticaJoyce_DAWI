@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.boticajoyce.entity.CategoriaEntity;
 import com.boticajoyce.entity.IfaEntity;
@@ -66,8 +68,25 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/producto/registrar")
-	public String registrarProd() {
+	public String registrarProd(Model model) {
+		ProductoEntity productos = new ProductoEntity();
+		List<CategoriaEntity> categorias = catserv.getCategorias();
+		List<LaboratorioEntity> laboratorios = labserv.getLaboratorios();
+		List<IfaEntity> ifas = ifaserv.getIfas();
+		
+		model.addAttribute("productos", productos);
+		model.addAttribute("categorias", categorias);
+		model.addAttribute("laboratorios", laboratorios);
+		model.addAttribute("ifas", ifas);
 		return "MantenimientoProd";
+	}
+	
+	@PostMapping("/producto/save")
+	public String saveProd(@ModelAttribute (name = "productos") ProductoEntity bean,
+						   RedirectAttributes redirect) {
+		prodserv.mantener(bean);
+		redirect.addFlashAttribute("mensaje", "PRODUCTO REGISTRADO");
+		return "redirect:/producto/registrar";
 	}
 	
 	@GetMapping("/producto/laboratorio")
