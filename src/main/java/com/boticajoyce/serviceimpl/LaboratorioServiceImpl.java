@@ -20,4 +20,9 @@ public class LaboratorioServiceImpl implements ILaboratorioService {
 		return repolab.findAll();
 	}
 
+	@Override
+	public LaboratorioEntity saveLab(LaboratorioEntity bean) {
+		return repolab.save(bean);
+	}
+
 }

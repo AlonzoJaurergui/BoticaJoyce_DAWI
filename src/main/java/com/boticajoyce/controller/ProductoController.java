@@ -90,8 +90,18 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/producto/laboratorio")
-	public String laboratorio() {
+	public String laboratorio(Model model) {
+		List<LaboratorioEntity> laboratorios = labserv.getLaboratorios();
+		model.addAttribute("laboratorios", laboratorios);
 		return "Laboratorio";
+	}
+	
+	@PostMapping("/producto/laboratorio/save")
+	public String saveLab(@ModelAttribute (name = "laboratorios") LaboratorioEntity bean,
+			              RedirectAttributes redirect) {
+		labserv.saveLab(bean);
+		
+		return "";
 	}
 	
 }

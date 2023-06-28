@@ -50,7 +50,7 @@ primary key (id_categoria)
 );
 
 CREATE TABLE tb_laboratorio(
-id_laboratorio int primary key,
+id_laboratorio int auto_increment primary key,
 nombre_laboratorio varchar(255)
 );
 
