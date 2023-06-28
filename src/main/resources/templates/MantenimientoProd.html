@@ -19,7 +19,7 @@
   <input type="hidden" th:value="${productos.id}" th:field="*{id}">
   <div class="form-group">
     <label for="inputNombre">Nombre del producto</label>
-    <input class="form-control" th:field="*{nombre}" placeholder="Ingrese nombre del producto">
+    <input class="form-control" th:value="${productos.nombre}" th:field="*{nombre}" placeholder="Ingrese nombre del producto">
   </div>
   <!--  
   <div class="form-group">
@@ -61,19 +61,19 @@
   </div>
   <div class="form-group">
     <label for="inputNombre">Unidades en stock</label>
-    <input class="form-control" th:field="*{stock}" placeholder="0">
+    <input class="form-control" th:value="${productos.stock}" th:field="*{stock}" placeholder="0">
   </div>
   <div class="form-group">
     <label for="inputNombre">Precio por unidad</label>
-    <input class="form-control" th:field="*{precio_unidad}" placeholder="S/ 0.00">
+    <input class="form-control" th:value="${productos.precio_unidad}" th:field="*{precio_unidad}" placeholder="S/ 0.00">
   </div>
   <div class="form-group">
     <label for="inputNombre">Precio por empaquetado</label>
-    <input class="form-control" th:field="*{precio_empaq}" placeholder="S/ 0.00">
+    <input class="form-control" th:value="${productos.precio_empaq}" th:field="*{precio_empaq}" placeholder="S/ 0.00">
   </div>
   <div class="form-group">
     <label for="inputNombre">Fecha de caducidad</label>
-    <input type="date" th:field="*{fechacad}" class="form-control">
+    <input type="date" th:value="${productos.fechacad}" th:field="*{fechacad}" class="form-control">
   </div>
   <br>
   <button type="submit" class="btn btn-success">Agregar</button>

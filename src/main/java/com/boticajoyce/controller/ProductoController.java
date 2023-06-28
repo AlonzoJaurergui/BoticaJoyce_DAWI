@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -81,12 +82,35 @@ public class ProductoController {
 		return "MantenimientoProd";
 	}
 	
+	@GetMapping("/producto/editar/{id}")
+	public String actualizarProd(@PathVariable int id, Model model) {
+		ProductoEntity productos = prodserv.getProductoById(id);
+		
+		List<CategoriaEntity> categorias = catserv.getCategorias();
+		List<LaboratorioEntity> laboratorios = labserv.getLaboratorios();
+		List<IfaEntity> ifas = ifaserv.getIfas();
+		
+		model.addAttribute("productos", productos);
+		model.addAttribute("categorias", categorias);
+		model.addAttribute("laboratorios", laboratorios);
+		model.addAttribute("ifas", ifas);
+		
+		return "MantenimientoProd";
+	}
+	
 	@PostMapping("/producto/save")
 	public String saveProd(@ModelAttribute (name = "productos") ProductoEntity bean,
 						   RedirectAttributes redirect) {
 		prodserv.mantener(bean);
-		redirect.addFlashAttribute("mensaje", "PRODUCTO REGISTRADO");
+		redirect.addFlashAttribute("mensaje", "PRODUCTO REGISTRADO/ACTUALIZADO CORRECTAMENTE");
 		return "redirect:/producto/registrar";
+	}
+	
+	@GetMapping("/exportarProductos")
+	public String export(Model model) {
+		List<ProductoEntity> productos = prodserv.getProductos();
+		model.addAttribute("productos", productos);
+		return "/exportarProductos";
 	}
 	
 	@GetMapping("/producto/laboratorio")
@@ -101,7 +125,7 @@ public class ProductoController {
 			              RedirectAttributes redirect) {
 		labserv.saveLab(bean);
 		
-		return "";
+		return "redirect:/producto/laboratorio";
 	}
 	
 }

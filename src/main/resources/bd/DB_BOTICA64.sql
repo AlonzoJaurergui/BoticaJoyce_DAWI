@@ -369,5 +369,10 @@ insert into tb_cliente values (2,"Maximiliano Septimo Chavez Rivera","965241750"
 
 insert into tb_producto values (1,"GEMFIBROZILO 600 mg 30 unid.",1,32,86,21,0.50,15.00,"2025-11-03");
 insert into tb_producto values (2,"MALDEX COMPUESTO 1 unid.",3,52,64,15,0.50,15.00,"2026-02-04");
+insert into tb_producto values (3,"CLINDA C 300 mg Cápsula 100 unid.",1,51,50,32,1.50,150.00,"2024-08-15");
+insert into tb_producto values (4,"DICLO K 100 mg Comprimido Recubierto 100 unid.",1,80,66,42,2.00,200.00,"2023-11-27");
+insert into tb_producto values (5,"DOLNIX SL 10 mg Comprimido Sublingual 10 unid.",1,32,97,25,6.30,63.00,"2025-09-14");
+insert into tb_producto values (6,"EVACUOL Emulsión Rectal 1 unid.",3,63,83,25,28.00,28.00,"2024-12-01");
+insert into tb_producto values (7,"FLUIMUCIL 100 mg/5 mL Jarabe 1 unid.",3,59,2,28,29.00,29.00,"2026-02-05");
 
 select * from tb_producto;
