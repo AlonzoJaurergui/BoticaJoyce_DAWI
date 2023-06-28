@@ -15,7 +15,7 @@
 <div class="alert alert-success alert-dismissible fade show mt-2 mb-2" role="alert" th:if="${mensaje != null}" th:text="${mensaje}">
 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
-<form th:action="@{/producto/save}" th:object="${productos}">
+<form th:action="@{/producto/save}" method="post" th:object="${productos}">
   <input type="hidden" th:value="${productos.id}" th:field="*{id}">
   <div class="form-group">
     <label for="inputNombre">Nombre del producto</label>
